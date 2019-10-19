@@ -155,7 +155,6 @@ function register_user($first_name, $last_name, $username, $email, $password){
     $sql = "INSERT INTO users(first_name, last_name, username, email, password, validation_code, active)";
     $sql.= " VALUES('$first_name','$last_name','$username','$email','$password','$validation_code',0)";
     $result = query($sql);
-    confirm($result);
 
     $subject = "Activate Account";
     $msg = "Please click the link below to activate your Account
@@ -178,11 +177,9 @@ function activate_user(){
       echo($validation_code);
       $sql = "SELECT id FROM users WHERE email = '".($email)."' AND validation_code = '".($validation_code)."'";
       $result = query($sql);
-      confirm($result);
       if(row_count($result) == 1){
         $sql2 = "UPDATE users SET active = 1, validation_code = 0 WHERE email = '".($email)."' AND validation_code = '".($validation_code)."'";
         $result2 = query($sql2);
-        confirm($result2);
         set_message("<p class='bg-success'>Your account has been activated. Please login.</p>");
         redirect("login.php");
       }else{
@@ -267,6 +264,66 @@ function logged_in(){
   }else{
     return false;
   }
+} // functions
+
+/*************** Recover Password Function************/
+
+function recover_password(){
+  if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if(isset($_SESSION['token']) && $_POST['token'] == $_SESSION['token']){
+      $email = clean($_POST['email']);
+      if(email_exists($email)){
+        $validation_code = md5($email . microtime());
+
+        setcookie('temp_access_code', $validation_code, time()+60);
+
+        $sql = "UPDATE users SET validation_code = '$validation_code' WHERE email = '$email'";
+        $result = query($sql);
+
+        $subject = "Please reset your password";
+        $message = " Here is your password reset code {$validation_code}
+        Click here to reset your password http://localhost/code.php?email=$email&code=$validation_code
+        ";
+        $headers = "From: noreply@yourwebsite.com";
+        if(!send_email($email, $subject, $message, $headers)){
+          echo validation_errors("Email could not be sent!");
+        }
+      set_message("<p class='bg-success text-center'>Please check your email or spam folder for a password reset code</p>");
+      redirect("index.php");
+      }else{
+        echo validation_errors("Warning! This email does not exist!");
+      }
+    }else{
+      redirect("index.php");
+    }// token checks
+  } // post request
+} // functions
+
+/*************** Code Validation ************/
+function validate_code(){
+  if(isset($_COOKIE['temp_access_code'])) {
+    if(!isset($_GET['email']) && !isset($_GET['code'])){
+      redirect("index.php");
+    }else if (empty($_GET['email']) || empty($_GET['code'])) {
+      redirect('index.php');
+    }else{
+      if(isset($_POST['code'])){
+        $email = clean($_GET('email'));
+        $validation_code = clean($_POST['code']);
+        $sql = "SELECT id FROM users WHERE validation_code = '$validation_code' AND email = '$email'";
+        $result = query($sql);
+        if($row_count($result)==1){
+          redirect("reset.php");
+        }else{
+          echo validation_errors("Sorry wrong validation code");
+        }
+      }
+    }
+  }else{
+    set_message("<p class='bg-danger'>Sorry your validation cookie was expired!</p>");
+    redirect("recover.php");
+  }
 }
+
 
 ?>
