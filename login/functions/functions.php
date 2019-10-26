@@ -323,7 +323,7 @@ function register_user($first_name, $last_name, $username, $email, $password) {
 
 		$subject = "Activate Account";
 		$msg = " Please click the link below to activate your Account
-		http://localhost/activate.php?email==$email&code=$validation_code
+		http://localhost/activate.php?email=$email&code=$validation_code
 		";
 
 		$headers = "From: noreply@@musicrec.com";
