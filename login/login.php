@@ -1,18 +1,42 @@
 <?php include("includes/header.php") ?>
-	<?php include("includes/nav.php") ?>
+
+<?php
+
+	if(logged_in()) {
+
+		redirect("admin.php");
+
+	}
 
 
-	<div class="row">
-		<div class="col-lg-6 col-lg-offset-3">
+ ?>
 
+
+  <?php include("includes/nav.php") ?>
+
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<div class="container">
+	<div>
+		<div>
+
+			<?php display_message(); ?>
+
+			<?php validate_user_login(); ?>
 
 
 		</div>
 	</div>
-    	<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="panel panel-login">
-					<div class="panel-heading">
+	<div class="top">
+<div class="menu float-r">
+	<a href="#"><span></span></a>
+	<a href="#"><span></span></a>
+	<a href="#"><span></span></a>
+</div>
+</div>
+    	<div>
+			<div>
+				<div class="panel panel-login" style="background-color: #333; border: none; margin: 0;">
+					<div class="panel-heading" style="background-color: #333; border: none; margin: 0;">
 						<div class="row">
 							<div class="col-xs-6">
 								<a href="login.php" class="active" id="login-form-link">Login</a>
@@ -36,7 +60,7 @@
 									</div>
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-										<label for="remember"> Remember Me</label>
+										<label for="remember" style="color: white"> Remember Me</label>
 									</div>
 									<div class="form-group">
 										<div class="row">
@@ -63,4 +87,5 @@
 			</div>
 
 		</div>
-<?php include("includes/footer.php") ?>
+	</div>
+	<?php include("includes/footer.php") ?>

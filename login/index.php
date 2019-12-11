@@ -1,21 +1,15 @@
 <?php include("includes/header.php") ?>
 
-	<?php include("includes/nav.php") ?>
+
+  <?php include("includes/nav.php") ?>
+  <link href="style.css" rel="stylesheet" type="text/css">
+
 
 
 
 	<div class="jumbotron">
-		<h1 class="text-center"> Home Page</h1>
+		<?php display_message(); ?>
 	</div>
 
-	<?php
-	
-	$sql = "SELECT * FROM users";
-	$result = query($sql);
-	confirm($result);
-	$row = fetch_array($result);
-	echo $row['username'];
-
-	?>
 
 <?php include("includes/footer.php") ?>

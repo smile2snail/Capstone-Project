@@ -75,18 +75,12 @@ function validation_errors($error_message) {
 
 $error_message = <<<DELIMITER
 
-<div class="alert alert-danger alert-dismissible" role="alert">
+<div class="alert alert-danger alert-dismissible" role="alert" style="margin: -15% 0; position: absolute;">
   	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   	<strong>Warning!</strong> $error_message
  </div>
 DELIMITER;
-
 return $error_message;
-
-
-
-
-
 }
 
 
@@ -323,12 +317,15 @@ function register_user($first_name, $last_name, $username, $email, $password) {
 
 		$subject = "Activate Account";
 		$msg = " Please click the link below to activate your Account
-		http://localhost/activate.php?email=$email&code=$validation_code
+		http://localhost/login/activate.php?email=$email&code=$validation_code
 		";
 
-		$headers = "From: noreply@@musicrec.com";
+		$headers = "From: noreply.redmusic@gmail.com";
+
+
 
 		send_email($email, $subject, $msg, $headers);
+
 
 		return true;
 
@@ -366,14 +363,14 @@ function activate_user() {
 			$result2 = query($sql2);
 			confirm($result2);
 
-			set_message("<p class='bg-success'>Your account has been activated please login</p>");
+			set_message("<p class='bg-success' style='width: 110%; margin: 0px -5%;'>Your account has been activated please login</p>");
 
 			redirect("login.php");
 
 
 		} else {
 
-			set_message("<p class='bg-danger'>Sorry Your account could not be activated </p>");
+			set_message("<p class='bg-danger' style='width: 110%; margin: 0px -5%;'>Sorry Your account could not be activated </p>");
 
 			redirect("login.php");
 
@@ -403,11 +400,17 @@ function validate_user_login(){
 	$min = 3;
 	$max = 20;
 
+
+
 	if($_SERVER['REQUEST_METHOD'] == "POST") {
+
 
 		$email 		= clean($_POST['email']);
 		$password	= clean($_POST['password']);
 		$remember   = isset($_POST['remember']);
+
+
+
 
 		if(empty($email)) {
 
@@ -415,11 +418,15 @@ function validate_user_login(){
 
 		}
 
+
 		if(empty($password)) {
 
 			$errors[] = "Password field cannot be empty";
 
 		}
+
+
+
 		if(!empty($errors)) {
 
 				foreach ($errors as $error) {
@@ -581,10 +588,12 @@ function recover_password() {
 
 			$subject = "Please reset your password";
 			$message =  " Here is your password rest code {$validation_code}
-			Click here to reset your password http://localhost/code.php?email=$email&code=$validation_code
+
+			Click here to reset your password http://localhost/login/code.php?email=$email&code=$validation_code
+
 			";
 
-			$headers = "From: noreply@@musicrec.com";
+			$headers = "From: noreply.redmusic@gmail.com";
 
 
 

@@ -1,0 +1,85 @@
+Python 3.7.4 (v3.7.4:e09359112e, Jul  8 2019, 14:54:52) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+ RESTART: /Users/kehuang/Documents/Kent/subjects/Capstone_Project/code/simple_song_recommender.py 
+Reading the triplet file 10000.csv ...
+Reading the song metadata file song_data.csv ...
+Merging the two datasets ...
+The result of the merging:
+                                    user_id  ...    year
+0  b80344d063b5ccb3212f76538f3d9e43d87dca9e  ...     0.0
+1  b80344d063b5ccb3212f76538f3d9e43d87dca9e  ...  1976.0
+2  b80344d063b5ccb3212f76538f3d9e43d87dca9e  ...  2007.0
+3  b80344d063b5ccb3212f76538f3d9e43d87dca9e  ...  2005.0
+4  b80344d063b5ccb3212f76538f3d9e43d87dca9e  ...  1999.0
+
+[5 rows x 7 columns]
+The length of the merged dataset is 25348
+There are totally 928 users.
+There are totally 7918 songs.
+
+Splitting the merged song dataset into training and test datasets ...
+------------------------------------------------------------------------------------
+Training data songs for the user userid: 4bd88bfb25263a75bbdd467e74018f4ae570e5df:
+------------------------------------------------------------------------------------
+SOWPAXV12A67ADA046
+SOEPZQS12A8C1436C7
+SOXGQEM12AB0181D35
+SOVEUVC12A6310EAF1
+SOWGXOP12A6701E93A
+SOWEHOM12A6BD4E09E
+SOGEKGR12A6D4F81E8
+SOUSQCN12A8C133302
+SOGDDKR12A6701E8FA
+SOKOXWU12AF72AD1BC
+SODGVGW12AC9075A8D
+SOMNTMT12A8C1400F6
+SOJNQZO12AF72AAE32
+----------------------------------------------------------------------
+Recommendation process going on:
+----------------------------------------------------------------------
+No. of unique songs for the user: 13
+no. of unique songs in the training set: 7273
+Non zero values in cooccurence_matrix :5317
+The recommended music for the user:
+                                    user_id                song     score rank
+0  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOHYSXA12AB0186704  0.062899    1
+1  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOBOAFP12A8C131F36  0.051011    2
+2  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOAUFOF12AB0180C65  0.049938    3
+3  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOGCWUH12AC90732B0  0.049575    4
+4  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOCKSGZ12A58A7CA4B  0.049260    5
+5  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOUVTSM12AC468F6A7  0.047968    6
+6  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOEYVHS12AB0181D31  0.047770    7
+7  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOPVQLJ12A67AE2281  0.047624    8
+8  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOOJJCT12A6310E1C0  0.047616    9
+9  4bd88bfb25263a75bbdd467e74018f4ae570e5df  SOKYJYU12AB0186429  0.046232   10
+
+
+no. of unique songs in the training set: 7273
+Non zero values in cooccurence_matrix :0
+The music similar to U Smile - Justin Bieber:
+  user_id                song  score rank
+0          SOHKXRA12AB017E7F8    0.0    1
+1          SORBGAS12A6D4F89DC    0.0    2
+2          SOOIWVW12A6D4FA72B    0.0    3
+3          SOMSYUR12A58A7E018    0.0    4
+4          SOUVUYW12A8C133FC4    0.0    5
+5          SOIGAWN12A8151E078    0.0    6
+6          SOURBIU12AC3DF683C    0.0    7
+7          SOFZUKC12AC468D4DF    0.0    8
+8          SOUCUDU12A6701F5FB    0.0    9
+9          SOPZIWG12AB0186DC4    0.0   10
+
+
+The user rating matrix (numpy array) urm = 
+[[3 1 2 3]
+ [4 3 4 3]
+ [3 2 1 5]
+ [1 6 5 2]
+ [5 0 0 0]]
+User id for whom recommendations are needed: 4
+Predicted ratings:
+[1 2 0 3]
+>>> 
+>>> 

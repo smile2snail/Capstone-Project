@@ -1,34 +1,73 @@
-<?php
-
+<?php 
 
 $con = mysqli_connect('localhost', 'root', '', 'login_db');
 
+
 function row_count($result){
-  return mysqli_num_rows($result);
-}
 
-function escape($string){
-  global $con;
-  mysqli_real_escape_string($con, $string);
+
+return mysqli_num_rows($result);
 
 }
 
-function query($query){
-  global $con;
-  return mysqli_query($con, $query);
+
+
+function escape($string) {
+	global $con;
+
+	return mysqli_real_escape_string($con, $string);
+
+
 }
 
-function confirm($result){
-  global $con;
-  if(!$result){
-    die("Query Failed". mysqli_error($con));
-  }
+function confirm($result) {
+
+	global $con;
+
+	if(!$result) {
+
+		die("QUERY FAILED" . mysqli_error($con));
+
+	}
+
 }
 
-function fetch_array($result){
-  global $con;
-  return mysqli_fetch_array($result);
+
+
+function query($query) {
+
+	global $con;
+
+	$result =  mysqli_query($con, $query);
+
+	confirm($result);
+
+	return $result;
+
+
 }
 
 
-?>
+
+
+
+function fetch_array($result) {
+
+	global $con;
+
+
+	return mysqli_fetch_array($result);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+ ?>

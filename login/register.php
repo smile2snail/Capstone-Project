@@ -1,17 +1,29 @@
 <?php include("includes/header.php") ?>
-	<?php include("includes/nav.php") ?>
-	<div class="row">
-		<div class="col-lg-6 col-lg-offset-3">
-				<?php validate_user_registration(); ?>
+
+
+<?php include("includes/nav.php") ?>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<div class="container">
+
+	<div>
+		<div>
+
+			<?php validate_user_registration(); ?>
+
 		</div>
-
-
-
+		<div class="top">
+	<div class="menu float-r">
+		<a href="#"><span></span></a>
+		<a href="#"><span></span></a>
+		<a href="#"><span></span></a>
 	</div>
-    	<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="panel panel-login">
-					<div class="panel-heading">
+	</div>
+	</div>
+
+    	<div>
+			<div>
+				<div class="panel panel-login" style="background-color: #333; border: none; margin: 0;">
+					<div class="panel-heading" style="background-color: #333; border: none; margin: 0;">
 						<div class="row">
 							<div class="col-xs-6">
 								<a href="login.php">Login</a>
@@ -29,6 +41,7 @@
 									<div class="form-group">
 										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="First Name" value="" required >
 									</div>
+
 									<div class="form-group">
 										<input type="text" name="last_name" id="last_name" tabindex="1" class="form-control" placeholder="Last Name" value="" required >
 									</div>
@@ -59,4 +72,5 @@
 				</div>
 			</div>
 		</div>
+	</div>
 <?php include("includes/footer.php") ?>
