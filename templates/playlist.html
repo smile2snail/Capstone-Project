@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<style>
+body {
+  background-image: url('static/img/playlist.jpg');
+}
+</style>
+
+<script>
+function get_history_0() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post0",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data0').text(html);
+            });
+};
+
+
+function get_history_1() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post1",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data1').text(html);
+            });
+};
+
+function get_history_2() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post2",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data2').text(html);
+            });
+};
+
+function get_history_3() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post3",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data3').text(html);
+            });
+};
+
+function get_history_4() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post4",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data4').text(html);
+            });
+};
+
+function get_history_5() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post5",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data5').text(html);
+            });
+};
+
+function get_history_6() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post6",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data6').text(html);
+            });
+};
+
+function get_history_7() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post7",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data7').text(html);
+            });
+};
+
+function get_history_8() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post8",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data8').text(html);
+            });
+};
+
+function get_history_9() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/post9",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data9').text(html);
+            });
+};
+  </script>
+  
+<script>
+function get_recommend_0() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec0",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data0').text(html);
+            });
+};
+
+
+function get_recommend_1() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec1",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data1').text(html);
+            });
+};
+
+function get_recommend_2() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec2",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data2').text(html);
+            });
+};
+
+function get_recommend_3() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec3",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data3').text(html);
+            });
+};
+
+function get_recommend_4() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec4",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data4').text(html);
+            });
+};
+
+function get_recommend_5() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec5",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data5').text(html);
+            });
+};
+
+function get_recommend_6() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec6",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data6').text(html);
+            });
+};
+
+function get_recommend_7() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec7",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data7').text(html);
+            });
+};
+
+function get_recommend_8() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec8",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data8').text(html);
+            });
+};
+
+function get_recommend_9() {
+var userid= $('#userid').text();
+  $.ajax({
+              url: "/postrec9",
+              type: "POST",
+              data: {userid:userid}
+          }).done(function(response) {
+            var html= "";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+=val
+                });
+				$('.show-data9').text(html);
+            });
+};
+  </script>
+ 
+<script>
+function Get_all_history(){
+get_history_0();
+get_history_1();
+get_history_2();
+get_history_3();
+get_history_4();
+get_history_5();
+get_history_6();
+get_history_7();
+get_history_8();
+get_history_9();
+}
+</script>
+
+<script>
+function Get_all_recommend(){
+get_recommend_0();
+get_recommend_1();
+get_recommend_2();
+get_recommend_3();
+get_recommend_4();
+get_recommend_5();
+get_recommend_6();
+get_recommend_7();
+get_recommend_8();
+get_recommend_9();
+Change_title();
+}
+</script>
+
+
+<script>
+// change title on click
+function Change_title(){
+$('#heading').text("MyMix");
+document.getElementById("container").style.backgroundColor = "Maroon";
+}
+
+</script>
+
+
+<body onload="Get_all_history()">
+
+    <div id="container">
+        <h1 id="heading">My Listening History</h1>
+
+        <ol id="playlist">
+			<li>
+			<span class="show-data0">Song1</span>
+			</li>
+			<li><span class="show-data1">Song2</span>
+			</li>
+			<li><span class="show-data2">Song3</span>
+			</li>
+			<li><span class="show-data3">Song4</span>
+			</li>
+			<li><span class="show-data4">Song5</span>
+			</li>
+			<li><span class="show-data5">Song6</span>
+			</li>			
+			<li><span class="show-data6">Song7</span>
+			</li>
+			<li><span class="show-data7">Song8</span>
+			</li>
+			<li><span class="show-data8">Song9</span>
+			</li>
+			<li><span class="show-data9">Song10</span>
+			</li>	
+        </ol>
+
+    </div>
+	
+        <button id="play"><a href="/player">Play All</a></button>
+        <button id="next" onclick="Get_all_recommend()">Generate MyMix</button>
+        <button id="stop"><a href="/player">Pick One Randomly</a></button>
+</body>
