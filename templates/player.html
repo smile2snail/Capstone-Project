@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music player</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/playerstyle.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+     <div id="bg">
+         <div id="blacklayer"></div>
+         <img src="/static/img/maxresdefault.jpg">
+		
+		 
+     </div>
+     <div id="main">
+         <div id="image">
+             <img src="/static/img/maxresdefault.jpg">
+         </div>
+      <div id="player">
+          <div id="buttons">
+              <button id="pre" onclick="pre()"><img src="/static/img/Pre.png" height="90%" width="90%"></button>
+              <button id="play" onclick="playOrPauseSong()"><img src="/static/img/Pause.png"></button>
+              <button id="next" onclick="next()"><img src="/static/img/Next.png" height="90%" width="90%"></button>
+          </div>
+          <div id="songTitle">Demo</div>
+          <div id="seek-bar">
+              <div id="fill"></div>
+              <div id="handle"></div>
+          </div>
+          <div class="options">
+      			<a href="#" class="shuffle active"><i class="fa fa-random"></i></a>
+      			<a href="#" class="replay"><i class="fa fa-refresh"></i></a>
+      			<a href="#" class="volume"><i class="fa fa-volume-up"></i></a>
+      			<a href="#" class="favorite active"><i class="fa fa-heart"></i></a>
+      		</div>
+      </div>
+    </div>
+</body>
+
+
+<script>
+var songs = ["In the End.mp3","Heartbreak.mp3","Uprising.mp3"];
+var poster = ["maxresdefault.jpg","salt-3060093_1920.jpg","d2ea4afa4ac6bc409e99bc9611b6a2b7.jpg"];
+var songTitle = document.getElementById("songTitle");
+var fillBar = document.getElementById("fill");
+var song = new Audio();
+var currentSong = 0;
+window.onload = playSong;
+  function playSong(){
+      song.src = "/static/"+songs[currentSong];
+      songTitle.textContent = songs[currentSong];
+      song.play();
+  }
+   function playOrPauseSong(){
+       if(song.paused){
+           song.play();
+           $("#play img").attr("src","/static/img/"+"Pause.png");
+       }
+       else{
+           song.pause();
+           $("#play img").attr("src","/static/img/"+"Play.png");
+       }
+    }
+  song.addEventListener('timeupdate', function(){
+    var position = song.currentTime / song.duration;
+    fillBar.style.width = position *100 + '%';
+  });
+  function next(){
+    currentSong++;
+    if(currentSong > 2){
+        currentSong = 0;
+    }
+    playSong();
+    $("#play img").attr("src","/static/img/"+"Pause.png");
+    $("#image img").attr("src","/static/img/"+poster[currentSong]);
+    $("#bg img").attr("src","/static/img/"+poster[currentSong]);
+  }
+  function pre(){
+    currentSong--;
+    if(currentSong < 0){
+        currentSong = 2;
+    }
+    playSong();
+    $("#play img").attr("src","/static/img/"+"Pause.png");
+    $("#image img").attr("src","/static/img/"+poster[currentSong]);
+    $("#bg img").attr("src","/static/img/"+poster[currentSong]);
+  }
+
+</script>
+</html>
